@@ -1,17 +1,9 @@
 # NeuroRead AI 🧠
 
 **Making any webpage readable for neurodivergent users through real-time AI multimodal transformation.**
-
-> **Google Big Code Hackathon 2026 · Accessibility Track**  
+ 
 > Powered by **FastAPI**, **Groq Cloud** (Llama 3.1 70B, Vision, Whisper), and **Redis**.
 
----
-
-## 🎥 Demo
-
-[Watch Demo](https://drive.google.com/file/d/1ljKxIPJ2vze8oKeQjhQpy85V-EDjkEPj/view?usp=sharing)
-
----
 
 ## 🏗️ Architecture & Core Logic
 
