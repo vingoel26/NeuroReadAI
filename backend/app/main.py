@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routers import system
+# Import routers
+from app.api.routers import system, accessibility, reader, voice
 
 app = FastAPI(title="NeuroRead AI Backend")
 
@@ -15,3 +16,6 @@ app.add_middleware(
 
 # Mount all modules
 app.include_router(system.router)
+app.include_router(accessibility.router)
+app.include_router(reader.router)
+app.include_router(voice.router)
