@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NeuroRead AI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>NeuroRead AI</h1>
+  </header>
+
+  <div id="cam-section" class="cam-container" style="display: none;">
+    <div class="cam-header">
+      <span class="cam-title">CAM Score</span>
+      <span class="cam-rating" id="cam-rating-badge">...</span>
+    </div>
+    <div class="cam-body">
+      <div class="cam-gauge-wrapper">
+        <div class="cam-gauge" id="cam-gauge-circle">
+          <span class="cam-score-val" id="cam-score-val">--</span>
+        </div>
+      </div>
+      <ul class="cam-insights" id="cam-insights-list">
+        <li>Analyzing cognitive load...</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">Quick Profiles</div>
+  <div class="profiles-grid">
+    <div class="profile-card" data-preset="adhd">
+      <div class="profile-icon">🎯</div>
+      <div class="profile-name">ADHD</div>
+    </div>
+    <div class="profile-card" data-preset="dyslexia">
+      <div class="profile-icon">👁️</div>
+      <div class="profile-name">Dyslexia</div>
+    </div>
+    <div class="profile-card" data-preset="autism">
+      <div class="profile-icon">🧩</div>
+      <div class="profile-name">Autism</div>
+    </div>
+    <div class="profile-card active" data-preset="custom">
+      <div class="profile-icon">⚙️</div>
+      <div class="profile-name">Custom</div>
+    </div>
+  </div>
+
+  <div class="section-title">Typography Adjustments</div>
+  <div class="typography-controls">
+    <div class="slider-row">
+      <div class="slider-label">
+        <span>Text Size</span>
+        <span id="font-size-val">22px</span>
+      </div>
+      <input type="range" id="font-size-slider" min="16" max="32" value="22" step="1">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label">
+        <span>Line Spacing</span>
+        <span id="line-spacing-val">1.9</span>
+      </div>
+      <input type="range" id="line-spacing-slider" min="1.0" max="2.6" step="0.1" value="1.9">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label">
+        <span>Reading Speed</span>
+        <span id="read-speed-val">1.0x</span>
+      </div>
+      <input type="range" id="read-speed-slider" min="0.5" max="2.0" step="0.1" value="1.0">
+    </div>
+  </div>
+
+  <div class="section-title">Features</div>
+  <div class="features-container">
+    
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Formatting</div>
+        <div class="feature-desc">AI-tailored typography & colors</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-formatting">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Focus Block</div>
+        <div class="feature-desc">Block ads & autoplay videos</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-focus">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">True Focus</div>
+        <div class="feature-desc">Hide all menus & sidebars</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-focus-mode">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Focus Reader</div>
+        <div class="feature-desc">AI point-by-point overhaul</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-reader">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Simplify Text</div>
+        <div class="feature-desc">Explain complex text simply</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-simplify">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Read Aloud</div>
+        <div class="feature-desc">Word-highlighting TTS</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-read">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Image Explainer</div>
+        <div class="feature-desc">AI plain-language descriptions</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-explain">
+        <span class="slider"></span>
+      </label>
+    </div>
+    
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Tone & Subtext</div>
+        <div class="feature-desc">AI emotional intent breakdown</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-tone">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Navigation</div>
+        <div class="feature-desc">Floating TOC & deep search</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-toc">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row">
+      <div class="feature-info">
+        <div class="feature-name">Read Ruler</div>
+        <div class="feature-desc">Mouse-tracking focus line</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-ruler">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="feature-row voice-row">
+      <div class="feature-info">
+        <div class="feature-name">Voice Command</div>
+        <div class="feature-desc">Hands-free control</div>
+      </div>
+      <button id="btn-voice">🎤 Listen</button>
+    </div>
+
+  </div>
+
+  <div id="status">NeuroRead is Ready.</div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
