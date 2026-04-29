@@ -1,6 +1,6 @@
 # NeuroRead AI 🧠
 
-**Making any webpage readable for neurodivergent users through real-time AI multimodal transformation.**
+**Making any webpage readable for neurodivergent(Dyslexic,ADHD etc.) users through real-time AI multimodal transformation.**
  
 > Powered by **FastAPI**, **Groq Cloud** (Llama 3.1 70B, Vision, Whisper), and **Redis**.
 
